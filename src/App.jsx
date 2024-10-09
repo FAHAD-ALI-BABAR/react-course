@@ -1,18 +1,36 @@
 import { useState } from 'react'
 
 import './App.css'
-import Head from "./Components/Head"
-import Items from "./Components/Items"
-import Container from './Components/Container'
+import Calculator from './Components/Calculator'
+import Input from "./Components/Input"
+import Button from "./Components/Button"
 function App() {
-  const [count, setCount] = useState(0)
+  const btn=["C","1","2","+","3","4","-","5","6","*","7","8","/","9","0",".","="]
+  const [inputval,setinputval]=useState("")
+  const onbtnclick=(buttontext)=>{
+    console.log(buttontext);
+    if(buttontext==="C"){
+      setinputval("")
+
+    }else if(buttontext==="="){
+      const result=eval(inputval)
+      setinputval(result)
+
+    }else{
+      const newdispvalue=inputval+buttontext;
+      setinputval(newdispvalue)
+    }
+    
+
+  }
 
   return (
     <>
-    <Container>
-      <Head></Head>
-      <Items></Items>
-      </Container>
+    
+    <Input displayval={inputval}></Input>
+    <Button inputbtn={btn} onbtnclick={onbtnclick}></Button>
+   
+    
     </>
   )
 }
