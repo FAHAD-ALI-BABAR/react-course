@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 const Input = ({onnewitems}) => {
-    const[itemname,setitemname]=useState();
-    const[itemdate,setitemdate]=useState();
+    const[itemname,setitemname]=useState("");
+    const[itemdate,setitemdate]=useState("");
     const handleitemnamechange=(event)=>{
         // console.log(event.target.value);
         setitemname(event.target.value)
@@ -28,7 +28,7 @@ const Input = ({onnewitems}) => {
         <div className="col-md-4 mb-3">
         <input type='date' value={itemdate} onChange={handleitemdatechange}/></div>
         <div className="col-md-3">
-        <button onClick={handleaddbtnclicked} type="button" class="btn btn-primary btn-sm">Add</button>
+        <button onClick={handleaddbtnclicked} type="button" className="btn btn-primary btn-sm">Add</button>
         </div>
         </div>
         </div>

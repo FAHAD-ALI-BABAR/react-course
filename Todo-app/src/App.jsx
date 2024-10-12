@@ -23,12 +23,18 @@ function App() {
     settodoitems(newtodoitems);
 
   }
+  const handledelbtnclick=(delitemname)=>{
+    const newtodoitems=todoitems.filter((items)=> items.name!==delitemname)
+    settodoitems(newtodoitems)
+    console.log(`Deleted item is :${delitemname}`);
+    
+  }
   return (
     <>
    
       <Input onnewitems={handlenewlistitems}></Input>
       {todoitems.length===0 && <Welcome></Welcome> } 
-      <Listitems Listitems={todoitems}></Listitems>
+      <Listitems delbtnclicked={handledelbtnclick} Listitems={todoitems}></Listitems>
      
       
     </>
