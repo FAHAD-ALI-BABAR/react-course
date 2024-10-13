@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Tasklist = ({todotasks}) => {
+const Tasklist = ({todotasks,handledelbtn}) => {
+   
   return (
     <>
     {
         todotasks.map((task,index)=>(
             <ul key={index}>
                 
-                <li >{task.subject}{task.Date}</li>
+                <li >{task.itemname}</li>
+                <li >{task.duedate}</li>
+                <button onClick={()=>handledelbtn(task.itemname)} className='btn btn-danger'>Delete</button>
                 
                 
             </ul>
+
 
         ))
     }
